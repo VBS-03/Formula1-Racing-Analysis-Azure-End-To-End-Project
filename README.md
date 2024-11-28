@@ -26,8 +26,9 @@ The database structure is illustrated in the accompanying ER Diagram and detaile
 ![ER Diagram](Formula1_ergast_db_data_model.png)
 
 ## Implementation Plan
+---
 ### Source Data
-We are utilizing open-source data from the Ergast Developer API, which provides comprehensive Formula 1 data ranging from the year 1950 to 2021.
+We are utilizing open-source data from the Ergast Developer API, which provides comprehensive Formula 1 data ranging from the year 1950 to 2021. The various data files along with the file type is mentioned below:
 | File Name | File Type|
 |-----------|----------|
 | Circuits | CSV |
@@ -38,3 +39,51 @@ We are utilizing open-source data from the Ergast Developer API, which provides 
 | PitStops | Multi Line JSON |
 | LapTimes | Split CSV Files |
 | Qualifying | Split Multi Line JSON Files |
+
+### Project Requirements:
+The requirements for this project are broken down into six different parts which are
+
+1. Data Ingestion Requirements
+- Ingest all 8 files into Azure data lake.
+- Ingested data must have the same schema applied.
+- Ingested data must have audit columns.
+- Ingested data must be stored in columnar format (i.e., parquet).
+- We must be able to analyze the ingested data via SQL.
+- Ingestion Logic must be able to handle the incremental load.
+  
+2. Data Transformation Requirements
+- Join the key information required for reporting to create a new table.
+- Join the key information required for analysis to create a new table.
+- Transformed tables must have audit columns.
+- We must be able to analyze the transformed data via SQL.
+- Transformed data must be stored in columnar format (i.e., parquet).
+- Transformation logic must be able to handle the incremental load.
+  
+3. Data Reporting Requirements
+- Determine Driver Standings.
+- Determine Constructor Standings.
+  
+4. Data Analysis Requirements
+- Find the Dominant Drivers.
+- Find the Dominant Teams.
+- Visualize the outputs by creating Databricks Dashboards.
+- Develop a Power BI dashboard to visualize data and extract actionable insights.
+  
+5. Scheduling Requirements
+- Scheduled to run every Sunday at 10 pm.
+- Ability to monitor pipelines.
+- Ability to re-run failed pipelines.
+- Ability to set up alerts on failures.
+  
+6. Other Non-Functional Requirements
+- Ability to delete individual records.
+- Ability to see history and time travel.
+- Ability to roll back to a previous version.
+  
+### Azure Services Utilized for this Project's Implementation:
+- Azure Data Lake Storage Gen2
+- Azure Data Factory
+- Azure Databricks
+- Azure Key Vault
+
+###
