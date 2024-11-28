@@ -86,4 +86,13 @@ The requirements for this project are broken down into six different parts which
 - Azure Databricks
 - Azure Key Vault
 
-###
+## Implementation
+---
+### Overview:
+- Azure Data Factory (ADF) plays a pivotal role in orchestrating and monitoring the execution of Azure Databricks notebooks. The workflow begins with importing data from the Ergast API and storing it in Azure Data Lake Storage Gen2 (ADLS). Initially, raw data is loaded into the Bronze container, which acts as the landing zone.
+
+- To process the data in the Bronze zone, an Azure Databricks notebook performs data transformation using the upsert operation, converting the data into delta tables. Once this process is complete, ADF moves the transformed data to the Silver zone in ADLS. The Silver zone serves as the standardization layer, preparing the data for advanced use cases such as data science and machine learning.
+
+- In the Silver zone, further data refinement occurs through an Azure Databricks SQL notebook, where operations like joins and aggregations are applied to structure the data for analytics and visualization. The final transformed results are loaded into the Gold zone, which functions as the analytical layer, supporting in-depth analysis and reporting.
+
+- The entire implementation, from data ingestion and transformation to joining, aggregation, and preparing the ETL process to support incremental loads, has been orchestrated using Azure Data Factory (ADF). By creating a scheduled pipeline, ADF effectively manages and automates the entire workflow.
