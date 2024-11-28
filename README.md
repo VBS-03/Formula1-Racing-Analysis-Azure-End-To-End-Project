@@ -16,3 +16,6 @@ There are currently 10 teams in F1, each fielding two drivers, making up a grid 
 The results of each race contribute to the **Drivers' Championship standings** and the **Constructors' Championship standings**. At the end of the season:
 1. The driver with the most points is crowned the **World Drivers' Champion**.
 2. The team with the highest points tally wins the **World Constructors' Championship**.
+
+## ER Diagram
+![alt text]([image.jpg](https://github.com/VBS-03/Formula1-Racing-Analysis-Azure-End-To-End-Project/blob/main/formula1_ergast_db_data_model.png))
