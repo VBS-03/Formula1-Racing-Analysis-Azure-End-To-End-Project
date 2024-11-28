@@ -17,11 +17,13 @@ The results of each race contribute to the **Drivers' Championship standings** a
 1. The driver with the most points is crowned the **World Drivers' Champion**.
 2. The team with the highest points tally wins the **World Constructors' Championship**.
 
+## Solution Architecture for the Problem Statement
+![Solution Architecture](Solution Architecture.png)
+The data model is inspired by [Azure Databricks Modern Analytics Architecture](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+
 ## ER Diagram
 The database structure is illustrated in the accompanying ER Diagram and detailed further in the [Data User Guide](https://github.com/VBS-03/Formula1-Racing-Analysis-Azure-End-To-End-Project/blob/main/formula1_ergast_data_user_guide.txt)
 ![ER Diagram](Formula1_ergast_db_data_model.png)
-
-The data model is inspired by [Azure Databricks Modern Analytics Architecture](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 
 ## Implementation Plan
 ### Source Data
