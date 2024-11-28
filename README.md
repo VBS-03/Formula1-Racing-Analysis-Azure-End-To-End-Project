@@ -18,7 +18,7 @@ The results of each race contribute to the **Drivers' Championship standings** a
 2. The team with the highest points tally wins the **World Constructors' Championship**.
 
 ## Solution Architecture for the Problem Statement
-![Solution Architecture](Solution Architecture.png)
+![Solution Architecture](solution_architecture.png)
 The data model is inspired by [Azure Databricks Modern Analytics Architecture](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 
 ## ER Diagram
