@@ -18,5 +18,21 @@ The results of each race contribute to the **Drivers' Championship standings** a
 2. The team with the highest points tally wins the **World Constructors' Championship**.
 
 ## ER Diagram
-The database structure is illustrated in the accompanying ER Diagram and detailed further in the [Database User Guide](https://github.com/VBS-03/Formula1-Racing-Analysis-Azure-End-To-End-Project/blob/main/formula1_ergast_data_user_guide.txt)
+The database structure is illustrated in the accompanying ER Diagram and detailed further in the [Data User Guide](https://github.com/VBS-03/Formula1-Racing-Analysis-Azure-End-To-End-Project/blob/main/formula1_ergast_data_user_guide.txt)
 ![ER Diagram](Formula1_ergast_db_data_model.png)
+
+The data model is inspired by [Azure Databricks Modern Analytics Architecture](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+
+## Implementation Plan
+### Source Data
+We are utilizing open-source data from the Ergast Developer API, which provides comprehensive Formula 1 data ranging from the year 1950 to 2021.
+| File Name | File Type|
+|-----------|----------|
+| Circuits | CSV |
+| Races	| CSV |
+| Constructors | Single Line JSON |
+| Drivers	| Single Line Nested JSON |
+| Results	| Single Line JSON |
+| PitStops | Multi Line JSON |
+| LapTimes | Split CSV Files |
+| Qualifying | Split Multi Line JSON Files |
