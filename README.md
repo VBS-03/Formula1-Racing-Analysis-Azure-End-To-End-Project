@@ -18,4 +18,5 @@ The results of each race contribute to the **Drivers' Championship standings** a
 2. The team with the highest points tally wins the **World Constructors' Championship**.
 
 ## ER Diagram
-![ER Diagram](formula1_ergast_db_data_model.png)
+The database structure is illustrated in the accompanying ER Diagram and detailed further in the [Database User Guide.]([https://www.example.com](https://github.com/VBS-03/Formula1-Racing-Analysis-Azure-End-To-End-Project/blob/main/formula1_ergast_data_user_guide.txt))
+![ER Diagram](Formula1_ergast_db_data_model.png)
