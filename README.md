@@ -28,7 +28,7 @@ The database structure is illustrated in the accompanying ER Diagram and detaile
 ## Implementation Plan
 ---
 ### Source Data
-We are utilizing open-source data from the Ergast Developer API, which provides comprehensive Formula 1 data ranging from the year 1950 to 2021. The various data files along with the file type is mentioned below:
+We are utilizing open-source data from the Ergast Developer API, which provides comprehensive Formula 1 data ranging from the year 1950 to 2021. The various data files along with the file type are mentioned below:
 | File Name | File Type|
 |-----------|----------|
 | Circuits | CSV |
