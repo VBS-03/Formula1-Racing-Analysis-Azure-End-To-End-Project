@@ -1,4 +1,4 @@
-# Azure-End-To-End-Project-For-Formula1-Racing-Analysis
+# Azure-End-To-End-DE-Project-For-Formula1-Racing-Analysis
 A complete azure end-to-end project for analyzing formula1 racing from 1950-2021
 
 ## Project Overview:
@@ -96,3 +96,13 @@ The requirements for this project are broken down into six different parts which
 - In the Silver zone, further data refinement occurs through an Azure Databricks SQL notebook, where operations like joins and aggregations are applied to structure the data for analytics and visualization. The final transformed results are loaded into the Gold zone, which functions as the analytical layer, supporting in-depth analysis and reporting.
 
 - The entire implementation, from data ingestion and transformation to joining, aggregation, and preparing the ETL process to support incremental loads, has been orchestrated using Azure Data Factory (ADF). By creating a scheduled pipeline, ADF effectively manages and automates the entire workflow.
+
+### Security, Governance and Mounts to ADLS:
+- Created Azure Key Vault 
+- Created Service Principal and generated the secret
+- Added the secrets to Azure Key Vault
+- Created the Databricks Secret Scope and linked Azure Key Vault to it.
+- Get secrets in the notebook using **dbutils.secrets.get**
+- Created mounts to the containers in ADLS **( Raw = Bronze, Processed = Silver, Presentation = Gold )**
+
+  Script - [mount_adls_storage.py](set-up/mount_adls_storage.py)
