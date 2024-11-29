@@ -189,7 +189,9 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
       - **Data Cleansing:** Remove duplicate records to ensure consistency.
   * Similar to the ingestion pipeline, this pipeline also contains Get Metadata and If Condition activities.
       - The True section contains notebooks that have dependencies, as shown in the diagram.
+
         ![transformation_files_execution](transformation_files_execution.png)
+
         
       - The execution flow follows the same logic as the ingestion pipeline, with email alerts triggered if any file is missing.
         
