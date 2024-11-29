@@ -114,7 +114,7 @@ The requirements for this project are broken down into six different parts which
 - Used magic command **%run** to include the child notebook in the parent notebook.
 - Created notebook workflow for the testing purpose.
 
-  Following are the steps taken to meet the ingestion, transformation and aggregation requirements:
+  **Following are the steps taken to meet the ingestion, transformation and aggregation requirements:**
   * Created Delta Lake databases (each for - raw, processed and presentation layers) with default storage location in the adls.
   * Ingested CSV, simple, and complex JSON files into the data lake as parquet files/ tables.
   * Transformations such as Filter, Join, Simple Aggregations, GroupBy, Window functions, withColumn, withColumnRenamed, etc have been used.
@@ -122,3 +122,10 @@ The requirements for this project are broken down into six different parts which
   * Global and temp views were also used.
   * **Merge** command has been used to upsert the data into the delta tables supporting the efficient incremental loading.
   * Implemented full refresh and incremental load patterns using partitions. 
+  * Delta Lake has been used to support the History, Time Travel, and Vacuum functionalities offered by it.
+  * All the implementation were made using pyspark and spark sql.
+ 
+  **Scripts :**
+  1. [1.create_raw_tables.sql](raw/1.create_raw_tables.sql)
+  2. [ingestion](ingestion)
+                
