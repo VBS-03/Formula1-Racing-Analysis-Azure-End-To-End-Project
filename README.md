@@ -155,7 +155,20 @@ The requirements for this project are broken down into six different parts which
 ![Report on Dominant Team](Report_Dominant_Team.png)
 
 ### ETL Pipeline:
-- Leveraged Azure Data Factory to develop a robust pipeline which can orchestrate the entire data flow.
-- **ETL flow comprises two parts:**
-  * **Ingestion:** Process data from Bronze zone to Silver zone [<ins>Note: We could have ingested the data directly by creating **HTTP** linked service to the ergast API but here we have loaded the raw files directly into the raw container for easier project implementation</ins>]
-  * **Transformation:** Process data from Silver zone to Gold zone
+- Utilized Azure Data Factory to design and implement a robust pipeline for orchestrating the complete data flow.
+- **The ETL process is structured into two key components:**
+  * **Ingestion:** Transfers data from the Bronze zone (raw data) to the Silver zone (standardized data). [<ins>Note: Although direct ingestion from the Ergast API via an HTTP linked service was possible, raw files were loaded into the raw container to simplify project implementation.</ins>]
+  * **Transformation:** Processes data from the Silver zone to the Gold zone, preparing it for analytical and reporting purposes.
+
+- In the initial pipeline, data stored in JSON and CSV formats is ingested using Apache Spark with minimal transformations before being saved as a Delta table. The transformations include:
+  * Dropping unnecessary columns.
+  * Renaming headers for consistency.
+  * Applying a defined schema.
+  * Adding audit columns such as **ingestion_date** and **file_source** for tracking purposes.
+Additionally, the **file_date** parameter is dynamically passed as a notebook parameter in Azure Data Factory (ADF), enabling flexible and efficient data processing workflows.
+-  All these operations were performed in the ingestion notebooks within Databricks. A linked service to Databricks was created to enable notebook invocation through ADF triggers, with the required roles assigned for seamless integration.
+-  The two key activities included in each pipeline are as follows:
+  1. **Get Metadata** - This activity retrieves folder details from the raw container to verify if a folder for a specified date (passed as a pipeline trigger parameter) exists.
+  2. **If Condition** - 
+      * Executes the TRUE path if the folder for the specified date is present (exists flag = True). In this case, all file ingestion notebooks placed under the TRUE section execute concurrently, as their execution order has no dependencies.
+      * If the folder is missing, the exists flag is set to False, and the FALSE path executes. This ensures the pipeline succeeds by sending an email alert indicating the absence of files for the specified date.
