@@ -200,3 +200,10 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
   * **Trigger:**
       - A Tumbling Window Trigger is set to run every Sunday at 10 PM.
       - If data for a specific week is not available in the raw container, the pipeline skips that week’s execution. An email alert will be sent indicating the missing data.
+        ![master_pipeline](master_pipeline.png)
+
+### Power BI Dashboard Creation
+
+**Dashboard** - [Formula1 Dashboard](Formula_1_Report.pbix)
+
+![Power_Bi_Report](Power_Bi_Report.png)
