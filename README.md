@@ -105,7 +105,7 @@ The requirements for this project are broken down into six different parts which
 - Get secrets in the notebook using **dbutils.secrets.get**
 - Created mounts to the containers in ADLS **( Raw = Bronze, Processed = Silver, Presentation = Gold )**
 
-  **Script - [mount_adls_storage.py](set-up/mount_adls_storage.py)**
+  **Script - [mount_adls_storage](set-up/mount_adls_storage.py)**
 
 ### Ingestion, Transformation and Aggregation:
 - Utilized databricks notebook for the ingestion, transformation and aggregation.
@@ -126,10 +126,10 @@ The requirements for this project are broken down into six different parts which
   * All the implementation were made using pyspark and spark sql.
  
   **Scripts :**
-  1. [common_functions.py](includes/common_functions.py)
-  2. [configuration.py](includes/configuration.py)
-  3. [1.create_raw_tables.sql](raw/1.create_raw_tables.sql)
-  4. [1.prepare_for_incremental_load.sql](utils/1.prepare_for_incremental_load.sql)
+  1. [common_functions](includes/common_functions.py)
+  2. [configuration](includes/configuration.py)
+  3. [create_raw_tables](raw/1.create_raw_tables.sql)
+  4. [prepare_for_incremental_load](utils/1.prepare_for_incremental_load.sql)
   5. [ingestion](ingestion)
   6. [trans](trans)
 
@@ -140,3 +140,16 @@ The requirements for this project are broken down into six different parts which
 
   ** Scripts :**
   1. [Driver Standings](trans/2.driver_standings.py)
+  2. [Constructor Standings](trans/3.constructor_standings.py)
+  3. [Calculated Race Results](trans/4.calculated_race_results.py)
+ 
+### Analysis and reporting in databricks:
+- Written the sql scripts to find the dominant drivers and dominant constructors.
+- Used these scripts for the generation of visuals to perform analysis.
+
+  **Scripts :**
+  * [Analysis](analysis)
+
+  ** Following are the visual reports created for the analysis:
+![Report on Dominant Driver](Report_Dominant_Driver.png)
+![Report on Dominant Team](Report_Dominant_Team.png)
