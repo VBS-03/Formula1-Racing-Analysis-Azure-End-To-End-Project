@@ -106,3 +106,19 @@ The requirements for this project are broken down into six different parts which
 - Created mounts to the containers in ADLS **( Raw = Bronze, Processed = Silver, Presentation = Gold )**
 
   **Script - [mount_adls_storage.py](set-up/mount_adls_storage.py)**
+
+### Ingestion, Transformation and Aggregation:
+- Utilized databricks notebook for the ingestion, transformation and aggregation.
+- Created and passed notebook parameters.
+- Compiled and converted re-usable codes to functions.
+- Used magic command **%run** to include the child notebook in the parent notebook.
+- Created notebook workflow for the testing purpose.
+
+  Following are the steps taken to meet the ingestion, transformation and aggregation requirements:
+  * Created Delta Lake databases (each for - raw, processed and presentation layers) with default storage location in the adls.
+  * Ingested CSV, simple, and complex JSON files into the data lake as parquet files/ tables.
+  * Transformations such as Filter, Join, Simple Aggregations, GroupBy, Window functions, withColumn, withColumnRenamed, etc have been used.
+  * **'dropDuplicates'** function has been utilized to remove duplicate records from the dataset. 
+  * Global and temp views were also used.
+  * **Merge** command has been used to upsert the data into the delta tables supporting the efficient incremental loading.
+  * Implemented full refresh and incremental load patterns using partitions. 
