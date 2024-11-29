@@ -213,19 +213,19 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
 ### Key Insights
 - Over the years, 853 drivers and 210 constructors have competed in Formula 1 from 1950 to 2020.
 - **Driver Performance Insights**
-  1. **Driver's Standings Over the Years:**
+  * **Driver's Standings Over the Years:**
     * Notable drivers like **Lewis Hamilton, Michael Schumacher, Sebastian Vettel, Ayrton Senna, and Alain Prost** have dominated the top standings at various points in F1 history.
     * **Lewis Hamilton** consistently appears among the top performers in recent decades.
-  2. **Top Drivers by Total Points:**
+  * **Top Drivers by Total Points:**
     * Lewis Hamilton leads with 3.8K points, followed by Sebastian Vettel (3.0K points) and Fernando Alonso (1.9K points). Other notable performers include Kimi Räikkönen, Nico Rosberg, and Michael Schumacher.
-  3. **Wins by Nationality:**
+  * **Wins by Nationality:**
     * British drivers dominate with 300 total wins, followed by German drivers (179 wins) and Brazilian drivers (101 wins). French and Finnish drivers also stand out in terms of achievements.
 
 - **Constructor Performance Insights**
-  1. **Constructor's Standings Over the Years:**
+  * **Constructor's Standings Over the Years:**
     * Ferrari, McLaren, Mercedes, Red Bull, and Williams have historically led the constructors' standings.
     * Ferrari's dominance spans decades, with Mercedes and Red Bull emerging as significant competitors in modern F1.
-  2. **Constructor's Total Points:**
+  * **Constructor's Total Points:**
     * Ferrari leads with 9.3K points, followed by Mercedes (5.9K points) and McLaren (5.8K points). Red Bull and Williams round out the top five with 5.1K points and 3.6K points, respectively.
 
 - **Key Observations**
