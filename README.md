@@ -180,7 +180,7 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
       - The operations are carried out in Databricks ingestion notebooks.
       - A Linked Service to Databricks is configured to invoke notebooks from ADF triggers, with appropriate roles assigned for seamless integration.
 
-       ![ingestion_pipeline](ingestion_pipeline.png)   
+        ![ingestion_pipeline](ingestion_pipeline.png)   
 
 **Transformation Pipeline:**
   * **Transformation Tasks:**
@@ -189,6 +189,7 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
       - **Data Cleansing:** Remove duplicate records to ensure consistency.
   * Similar to the ingestion pipeline, this pipeline also contains Get Metadata and If Condition activities.
       - The True section contains notebooks that have dependencies, as shown in the diagram.
+        
         ![transformation_files_execution](transformation_files_execution.png)
 
       - The execution flow follows the same logic as the ingestion pipeline, with email alerts triggered if any file is missing.
@@ -208,3 +209,39 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
 **Dashboard** - [Formula1 Dashboard](Formula1_Report.pbix)
 
 ![Power_Bi_Report](Power_Bi_Report.png)
+
+### Key Insights
+- Over the years, 853 drivers and 210 constructors have competed in Formula 1 from 1950 to 2020.
+- **Driver Performance Insights**
+  1. **Driver's Standings Over the Years:**
+    * Notable drivers like **Lewis Hamilton, Michael Schumacher, Sebastian Vettel, Ayrton Senna, and Alain Prost** have dominated the top standings at various points in F1 history.
+    * **Lewis Hamilton** consistently appears among the top performers in recent decades.
+  2. **Top Drivers by Total Points:**
+    * Lewis Hamilton leads with 3.8K points, followed by Sebastian Vettel (3.0K points) and Fernando Alonso (1.9K points). Other notable performers include Kimi Räikkönen, Nico Rosberg, and Michael Schumacher.
+  3. **Wins by Nationality:**
+    * British drivers dominate with 300 total wins, followed by German drivers (179 wins) and Brazilian drivers (101 wins). French and Finnish drivers also stand out in terms of achievements.
+
+- **Constructor Performance Insights**
+  1. **Constructor's Standings Over the Years:**
+    * Ferrari, McLaren, Mercedes, Red Bull, and Williams have historically led the constructors' standings.
+    * Ferrari's dominance spans decades, with Mercedes and Red Bull emerging as significant competitors in modern F1.
+  2. **Constructor's Total Points:**
+    * Ferrari leads with 9.3K points, followed by Mercedes (5.9K points) and McLaren (5.8K points). Red Bull and Williams round out the top five with 5.1K points and 3.6K points, respectively.
+
+- **Key Observations**
+  * **Ferrari's Longevity:** Ferrari has been a dominant force since the early days of F1, consistently earning the most points over the years.
+  * **Rise of Mercedes and Red Bull:** Mercedes and Red Bull have emerged as major players in the 21st century, challenging the traditional dominance of Ferrari and McLaren.
+  * **Driver and Constructor Correlation:** Successful constructors like Ferrari and Mercedes often have top-performing drivers, as reflected in the overlap between top drivers and constructors.
+  * **Nationality Patterns:** The dominance of British drivers highlights the country's significant contribution to F1 history, both in terms of drivers and constructor teams like McLaren.
+
+## Technologies/Tools Used:
+
+* Python
+* Pyspark
+* Spark SQL
+* Delta Lake
+* Azure Databricks
+* Azure Data Factory
+* Azure Date Lake Storage Gen2
+* Azure Key Fault
+* Power BI
