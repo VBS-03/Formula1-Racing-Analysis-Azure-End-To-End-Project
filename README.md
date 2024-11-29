@@ -189,10 +189,8 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
       - **Data Cleansing:** Remove duplicate records to ensure consistency.
   * Similar to the ingestion pipeline, this pipeline also contains Get Metadata and If Condition activities.
       - The True section contains notebooks that have dependencies, as shown in the diagram.
-
         ![transformation_files_execution](transformation_files_execution.png)
 
-        
       - The execution flow follows the same logic as the ingestion pipeline, with email alerts triggered if any file is missing.
         
 **Master Pipeline:**
@@ -202,6 +200,7 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
   * **Trigger:**
       - A Tumbling Window Trigger is set to run every Sunday at 10 PM.
       - If data for a specific week is not available in the raw container, the pipeline skips that week’s execution. An email alert will be sent indicating the missing data.
+
         ![master_pipeline](master_pipeline.png)
 
 ## Power BI Dashboard Creation
