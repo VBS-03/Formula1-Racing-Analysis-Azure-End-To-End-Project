@@ -151,11 +151,13 @@ The requirements for this project are broken down into six different parts which
   * [Analysis](analysis)
 
   **Following are the visual reports created for the analysis:**
+  
 ![Report on Dominant Driver](Report_Dominant_Driver.png)
 ![Report on Dominant Team](Report_Dominant_Team.png)
 
 ### ETL Pipeline:
-Azure Data Factory (ADF) was used to design and implement a robust data orchestration pipeline that supports data ingestion, transformation, and loading. 
+Azure Data Factory (ADF) was used to design and implement a robust data orchestration pipeline that supports data ingestion, transformation, and loading.
+
 **The pipeline is divided into two key components:**
   * **Ingestion:** Transfers data from the Bronze zone (raw data) to the Silver zone (standardized data). [<ins>Note: Although direct ingestion from the Ergast API via an HTTP linked service was possible, raw files were loaded into the raw container to simplify project implementation.</ins>]
   * **Transformation:** Processes data from the Silver zone to the Gold zone, preparing it for analytical and reporting purposes.
