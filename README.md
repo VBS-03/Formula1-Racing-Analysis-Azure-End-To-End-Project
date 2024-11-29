@@ -150,7 +150,7 @@ The requirements for this project are broken down into six different parts which
   **Scripts :**
   * [Analysis](analysis)
 
-  ** Following are the visual reports created for the analysis:**
+  **Following are the visual reports created for the analysis:**
 ![Report on Dominant Driver](Report_Dominant_Driver.png)
 ![Report on Dominant Team](Report_Dominant_Team.png)
 
