@@ -105,4 +105,4 @@ The requirements for this project are broken down into six different parts which
 - Get secrets in the notebook using **dbutils.secrets.get**
 - Created mounts to the containers in ADLS **( Raw = Bronze, Processed = Silver, Presentation = Gold )**
 
-  Script - [mount_adls_storage.py](set-up/mount_adls_storage.py)
+  **Script - [mount_adls_storage.py](set-up/mount_adls_storage.py)**
