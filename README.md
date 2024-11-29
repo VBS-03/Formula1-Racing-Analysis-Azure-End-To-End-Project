@@ -247,3 +247,7 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
 * Azure Date Lake Storage Gen2
 * Azure Key Fault
 * Power BI
+
+## Credits
+
+This project was inspired by an Udemy course created by **Ramesh Retnasamy.**
