@@ -155,20 +155,48 @@ The requirements for this project are broken down into six different parts which
 ![Report on Dominant Team](Report_Dominant_Team.png)
 
 ### ETL Pipeline:
-- Utilized Azure Data Factory to design and implement a robust pipeline for orchestrating the complete data flow.
-- **The ETL process is structured into two key components:**
+Azure Data Factory (ADF) was used to design and implement a robust data orchestration pipeline that supports data ingestion, transformation, and loading. 
+**The pipeline is divided into two key components:**
   * **Ingestion:** Transfers data from the Bronze zone (raw data) to the Silver zone (standardized data). [<ins>Note: Although direct ingestion from the Ergast API via an HTTP linked service was possible, raw files were loaded into the raw container to simplify project implementation.</ins>]
   * **Transformation:** Processes data from the Silver zone to the Gold zone, preparing it for analytical and reporting purposes.
 
-- In the initial pipeline, data stored in JSON and CSV formats is ingested using Apache Spark with minimal transformations before being saved as a Delta table. The transformations include:
-  * Dropping unnecessary columns.
-  * Renaming headers for consistency.
-  * Applying a defined schema.
-  * Adding audit columns such as **ingestion_date** and **file_source** for tracking purposes.
-Additionally, the **file_date** parameter is dynamically passed as a notebook parameter in Azure Data Factory (ADF), enabling flexible and efficient data processing workflows.
--  All these operations were performed in the ingestion notebooks within Databricks. A linked service to Databricks was created to enable notebook invocation through ADF triggers, with the required roles assigned for seamless integration.
--  **The two key activities included in each pipeline are as follows:**
-    1. **Get Metadata** - This activity retrieves folder details from the raw container to verify if a folder for a specified date (passed as a pipeline trigger parameter) exists.
-    2. **If Condition** - 
-        * Executes the TRUE path if the folder for the specified date is present (exists flag = True). In this case, all file ingestion notebooks placed under the TRUE section execute concurrently, as their execution order has no dependencies.
-        * If the folder is missing, the exists flag is set to False, and the FALSE path executes. This ensures the pipeline succeeds by sending an email alert indicating the absence of files for the specified date.
+**Key Activities in Each Pipeline:**
+  * **Get Metadata Activity:** Retrieves folder details from the raw container to check if the folder for a specified date exists (based on the pipeline trigger parameter).
+  * **If Condition Activity:**
+      - Executes the TRUE path if the folder exists (using an exists flag set to True).
+      - In case of ingestion pipeline, ingestion notebooks in the TRUE section execute concurrently, with no dependency order. While in the case of transformation pipeline, the included notebooks will execute as
+        per the defined dependency.
+      - If the folder is missing, the Get Metadata activity will pass exists flas as false and the FALSE path is executed. An email alert is triggered to notify that files for the specified date are missing but          the entire pipeline will be succeed.
+
+**Ingestion Pipeline:**
+  * **Data Sources:** Data in JSON and CSV formats is ingested using Apache Spark with minimal transformation.
+  * **Transformations:**
+      - Drop unnecessary columns.
+      - Rename headers for consistency.
+      - Apply predefined schema.
+      - Add audit columns like ingestion_date and file_source for tracking purposes.
+  * **Dynamic Parameters:** The file_date is passed dynamically as a notebook parameter in ADF to enable flexible processing workflows.
+  * **Databricks Integration:**
+      - The operations are carried out in Databricks ingestion notebooks.
+      - A Linked Service to Databricks is configured to invoke notebooks from ADF triggers, with appropriate roles assigned for seamless integration.
+
+       ![ingestion_pipeline](ingestion_pipeline.png)   
+
+**Transformation Pipeline:**
+  * **Transformation Tasks:**
+      - **Joins:** Consolidate data from multiple sources.
+      - **Aggregations:** Use window functions to perform advanced analytics.
+      - **Data Cleansing:** Remove duplicate records to ensure consistency.
+  * Similar to the ingestion pipeline, this pipeline also contains Get Metadata and If Condition activities.
+      - The True section contains notebooks that have dependencies, as shown in the diagram.
+        ![transformation_files_execution](transformation_files_execution.png)
+        
+      - The execution flow follows the same logic as the ingestion pipeline, with email alerts triggered if any file is missing.
+        
+**Master Pipeline:**
+  * **Master Pipeline:**
+      - Combines both Ingestion and Transformation pipelines.
+      - The Transformation pipeline runs only after the successful completion of the Ingestion pipeline.
+  * **Trigger:**
+      - A Tumbling Window Trigger is set to run every Sunday at 10 PM.
+      - If data for a specific week is not available in the raw container, the pipeline skips that week’s execution. An email alert will be sent indicating the missing data.
