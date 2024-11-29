@@ -126,6 +126,17 @@ The requirements for this project are broken down into six different parts which
   * All the implementation were made using pyspark and spark sql.
  
   **Scripts :**
-  1. [1.create_raw_tables.sql](raw/1.create_raw_tables.sql)
-  2. [ingestion](ingestion)
-                
+  1. [common_functions.py](includes/common_functions.py)
+  2. [configuration.py](includes/configuration.py)
+  3. [1.create_raw_tables.sql](raw/1.create_raw_tables.sql)
+  4. [1.prepare_for_incremental_load.sql](utils/1.prepare_for_incremental_load.sql)
+  5. [ingestion](ingestion)
+  6. [trans](trans)
+
+### Reporting requirement:
+- Further we have created the calculated_race_results based on the **race_results** which we have generated in the presentation layer.
+- Used Window Function **"Rank"** to determine the drivers standing and constructors standing using the **race_results** output.
+- Created delta tables for each of them so that it could be utlized for further analysis and report generation in Databricks and Power BI. 
+
+  ** Scripts :**
+  1. [Driver Standings](trans/2.driver_standings.py)
