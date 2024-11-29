@@ -167,8 +167,8 @@ The requirements for this project are broken down into six different parts which
   * Adding audit columns such as **ingestion_date** and **file_source** for tracking purposes.
 Additionally, the **file_date** parameter is dynamically passed as a notebook parameter in Azure Data Factory (ADF), enabling flexible and efficient data processing workflows.
 -  All these operations were performed in the ingestion notebooks within Databricks. A linked service to Databricks was created to enable notebook invocation through ADF triggers, with the required roles assigned for seamless integration.
--  The two key activities included in each pipeline are as follows:
-  1. **Get Metadata** - This activity retrieves folder details from the raw container to verify if a folder for a specified date (passed as a pipeline trigger parameter) exists.
-  2. **If Condition** - 
-      * Executes the TRUE path if the folder for the specified date is present (exists flag = True). In this case, all file ingestion notebooks placed under the TRUE section execute concurrently, as their execution order has no dependencies.
-      * If the folder is missing, the exists flag is set to False, and the FALSE path executes. This ensures the pipeline succeeds by sending an email alert indicating the absence of files for the specified date.
+-  **The two key activities included in each pipeline are as follows:**
+    1. **Get Metadata** - This activity retrieves folder details from the raw container to verify if a folder for a specified date (passed as a pipeline trigger parameter) exists.
+    2. **If Condition** - 
+        * Executes the TRUE path if the folder for the specified date is present (exists flag = True). In this case, all file ingestion notebooks placed under the TRUE section execute concurrently, as their execution order has no dependencies.
+        * If the folder is missing, the exists flag is set to False, and the FALSE path executes. This ensures the pipeline succeeds by sending an email alert indicating the absence of files for the specified date.
