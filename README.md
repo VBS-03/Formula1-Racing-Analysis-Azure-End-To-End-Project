@@ -108,22 +108,22 @@ The requirements for this project are broken down into six different parts which
   **Script - [mount_adls_storage](set-up/mount_adls_storage.py)**
 
 ### Ingestion, Transformation and Aggregation:
-- Utilized databricks notebook for the ingestion, transformation and aggregation.
-- Created and passed notebook parameters.
-- Compiled and converted re-usable codes to functions.
-- Used magic command **%run** to include the child notebook in the parent notebook.
-- Created notebook workflow for the testing purpose.
+- Leveraged Databricks notebooks for data ingestion, transformation, and aggregation.
+- Configured and utilized notebook parameters to dynamically control workflows.
+- Refactored reusable code into functions for better modularity and efficiency.
+- Integrated child notebooks into parent notebooks using the **%run** magic command.
+- Developed a notebook-based workflow to facilitate testing purposes.
 
-  **Following are the steps taken to meet the ingestion, transformation and aggregation requirements:**
-  * Created Delta Lake databases (each for - raw, processed and presentation layers) with default storage location in the adls.
+  **Steps undertaken to meet ingestion, transformation, and aggregation requirements:**
+  * Designed Delta Lake databases for raw, processed, and presentation layers, with default storage locations in Azure Data Lake Storage (ADLS).
   * Ingested CSV, simple, and complex JSON files into the data lake as parquet files/ tables.
-  * Transformations such as Filter, Join, Simple Aggregations, GroupBy, Window functions, withColumn, withColumnRenamed, etc have been used.
-  * **'dropDuplicates'** function has been utilized to remove duplicate records from the dataset. 
-  * Global and temp views were also used.
-  * **Merge** command has been used to upsert the data into the delta tables supporting the efficient incremental loading.
-  * Implemented full refresh and incremental load patterns using partitions. 
-  * Delta Lake has been used to support the History, Time Travel, and Vacuum functionalities offered by it.
-  * All the implementation were made using pyspark and spark sql.
+  * Applied transformations such as **Filter, Join, Aggregations, GroupBy, Window functions, withColumn, and withColumnRenamed**.
+  * Utilized the **dropDuplicates** function to eliminate duplicate records.
+  * Leveraged **global and temporary views** for intermediate transformations.
+  * Implemented **Merge** commands to efficiently upsert data into Delta tables, enabling incremental data loading.
+  * Developed patterns for both full refresh and incremental load using partitions.
+  * Exploited Delta Lake features like **History, Time Travel, and Vacuum** to meet non-functional requirements.
+  * All implementations were carried out using PySpark and Spark SQL.
  
   **Scripts :**
   1. [common_functions](includes/common_functions.py)
@@ -134,9 +134,9 @@ The requirements for this project are broken down into six different parts which
   6. [trans](trans)
 
 ### Reporting requirement:
-- Further we have created the calculated_race_results based on the **race_results** which we have generated in the presentation layer.
-- Used Window Function **"Rank"** to determine the drivers standing and constructors standing using the **race_results** output.
-- Created delta tables for each of them so that it could be utlized for further analysis and report generation in Databricks and Power BI. 
+- Developed the calculated_race_results table based on the race_results data generated in the presentation layer.
+- Utilized the **Rank window function** to compute driver standings and constructor standings using the race_results output.
+- Created Delta tables for both standings, enabling further analysis and report generation in **Databricks and Power BI**. 
 
   ** Scripts :**
   1. [Driver Standings](trans/2.driver_standings.py)
@@ -144,8 +144,8 @@ The requirements for this project are broken down into six different parts which
   3. [Calculated Race Results](trans/4.calculated_race_results.py)
  
 ### Analysis and reporting in databricks:
-- Written the sql scripts to find the dominant drivers and dominant constructors.
-- Used these scripts for the generation of visuals to perform analysis.
+- Developed SQL scripts to identify dominant drivers and dominant constructors based on performance metrics.
+- Leveraged these scripts to create visuals and perform detailed analysis.
 
   **Scripts :**
   * [Analysis](analysis)
