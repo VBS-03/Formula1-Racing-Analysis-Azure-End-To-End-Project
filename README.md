@@ -138,7 +138,7 @@ The requirements for this project are broken down into six different parts which
 - Utilized the **Rank window function** to compute driver standings and constructor standings using the race_results output.
 - Created Delta tables for both standings, enabling further analysis and report generation in **Databricks and Power BI**. 
 
-  ** Scripts :**
+  **Scripts :**
   1. [Driver Standings](trans/2.driver_standings.py)
   2. [Constructor Standings](trans/3.constructor_standings.py)
   3. [Calculated Race Results](trans/4.calculated_race_results.py)
