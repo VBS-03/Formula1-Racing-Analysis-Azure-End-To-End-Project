@@ -157,5 +157,5 @@ The requirements for this project are broken down into six different parts which
 ### ETL Pipeline:
 - Leveraged Azure Data Factory to develop a robust pipeline which can orchestrate the entire data flow.
 - **ETL flow comprises two parts:**
-  * **Ingestion:** Process data from Bronze zone to Silver zone [<Note: We could have ingested the data directly by creating **HTTP** linked service to the ergast API but here we have loaded the raw files directly into the raw container for easier project implementation> </Note: We could have ingested the data directly by creating **HTTP** linked service to the ergast API but here we have loaded the raw files directly into the raw container for easier project implementation>]
+  * **Ingestion:** Process data from Bronze zone to Silver zone [<ins>Note: We could have ingested the data directly by creating **HTTP** linked service to the ergast API but here we have loaded the raw files directly into the raw container for easier project implementation</ins>]
   * **Transformation:** Process data from Silver zone to Gold zone
