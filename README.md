@@ -238,8 +238,8 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
 
 ## Technologies/Tools Used:
 
-* Python
 * Pyspark
+* Python
 * Spark SQL
 * Delta Lake
 * Azure Databricks
