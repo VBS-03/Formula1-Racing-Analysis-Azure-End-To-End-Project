@@ -244,7 +244,7 @@ Azure Data Factory (ADF) was used to design and implement a robust data orchestr
 * Delta Lake
 * Azure Databricks
 * Azure Data Factory
-* Azure Date Lake Storage Gen2
+* Azure Data Lake Storage Gen2
 * Azure Key Vault
 * Power BI
 
